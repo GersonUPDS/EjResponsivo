@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <script>
+         function tablaMultiplicar(n , root){
+
+            if (root){
+              let childs =  root.childNodes;
+              console.log(childs);
+              for(let index=0; index < childs.length; ){
+                let child = childs[index];
+                root.removeChild(child);
+              }
+            }
+            for (let index = 1; index <= 10; index++) {
+                const element = n *index;
+                const message=${index}X${n}=${element};
+                console.log(message);
+                let p = document.createElement("p");
+                p.innerText = message;
+                p.style.fontWeight="bolder";
+                p.style.color="#ff0000";
+                if ( root ){
+                    root.appendChild(p);
+
+                }
+            }
+         }
+        
+    </script>
+       
+    <head></head>
+    <body >
+        <div>
+            <input type="number" id="num" max="100" min="1" value="1">
+            <input type="button" value="crear tabla" onclick="crearTabla()">
+        </div>
+
+        <div id="container-tabla" style="width: 300px; height: 100px;"></div>
+        <script>
+              function crearTabla(){
+                   const num=  document.getElementById("num");
+                   const n = num.value; 
+                   const root = document.getElementById("container-tabla");
+                   tablaMultiplicar(n,root);
+                }
+        </script>
+    </body>
+</html>
